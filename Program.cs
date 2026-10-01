@@ -216,9 +216,14 @@ static void RunVariant(int n)
             }
         case 12:
             {
-                var s = new Variant12_DeliveryBad();
-                var r = new Variant12_DeliveryRequest { OrderSum = 800, Km = 4 };
-                Console.WriteLine($"Fee: {s.Calc(r)}");
+                var bad = new Variant12_DeliveryBad();
+                var badRequest = new Variant12_DeliveryRequest { OrderSum = 800, Km = 4 };
+                Console.WriteLine($"Bad: {bad.Calc(badRequest)}");
+
+                var fixedService = new Variant12_DeliveryFixed();
+                var request = new Variant12_DeliveryRequestFixed { OrderSum = 500, Km = 3 };
+                Console.WriteLine($"Fixed: {fixedService.CalculateFee(request)}");
+
                 break;
             }
         case 13:
